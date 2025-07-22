@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+## Cake
+[Tt]ools/
+[Bb]uildArtifacts/
+
 # User-specific files
 *.rsuser
 *.suo

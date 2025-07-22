@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+
+	<IncludeSymbols>true</IncludeSymbols>
+	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	<PublishRepositoryUrl>true</PublishRepositoryUrl>
+	<EmbedUntrackedSources>true</EmbedUntrackedSources>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+	<Version>0.0.1-local</Version>
+	<Authors>Toni Wenzel</Authors>
+	<Copyright>Copyright © 2025</Copyright>
+	<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+	<Description>Microsoft Semantic Kernel extension to retrieve prompt templates from a git repository</Description>
+	<PackageTags>git;semantic;kernel;prompt;templates</PackageTags>
+	<PackageIcon>icon.png</PackageIcon>
+	<PackageProjectUrl>https://github.com/twenzel/codeessentials.SemanticKernel.PromptTemplates.GitRepository</PackageProjectUrl>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<RepositoryUrl>https://github.com/twenzel/codeessentials.SemanticKernel.PromptTemplates.GitRepository</RepositoryUrl>
+	<RepositoryType>github</RepositoryType>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<PackageId>codeessentials.SemanticKernel.PromptTemplates.Git</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" Visible="false" PackagePath="." />
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LibGit2Sharp" Version="0.31.0"/>
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.7" />    
+    <PackageReference Include="Microsoft.SemanticKernel.Yaml" Version="1.60.0" />
+  </ItemGroup>
+
+</Project>

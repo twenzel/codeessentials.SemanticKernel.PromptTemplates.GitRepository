@@ -34,6 +34,18 @@ services.AddGitPromptTemplates(config =>
 	new KernelPromptTemplateFactory(),
 	new HandlebarsPromptTemplateFactory());
 });
+
+// or 
+services.AddKernel()
+    .AddGitPromptTemplates(config =>
+    {
+    	configuration.GetSection("GitPrompts").Bind(config);
+    
+    	// Set the prompt template factory to use default and Handlebars templates
+    	config.PromptTemplateFactory = new AggregatorPromptTemplateFactory(
+    	new KernelPromptTemplateFactory(),
+    	new HandlebarsPromptTemplateFactory());
+    });
 ```
 
 Retrieve a prompt template from the git repository.

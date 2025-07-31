@@ -5,7 +5,7 @@ using Shouldly;
 
 namespace PromptTemplates.Git.Tests;
 
-public class Tests
+public class IntegrationTests
 {
 	private Kernel _kernel;
 

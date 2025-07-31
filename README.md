@@ -50,6 +50,7 @@ services.AddKernel()
 
 Retrieve a prompt template from the git repository.
 ```csharp
+// Get as KernelFunction
 var function = _kernel.GetFunctionFromGitPrompt("UserChatPrompt");
 
 var response = await _kernel.InvokeAsync(function, new KernelArguments
@@ -57,6 +58,9 @@ var response = await _kernel.InvokeAsync(function, new KernelArguments
 	{ "user", "John Doe" },
 	{ "message", "Hello, how are you?" }
 });
+
+// Get as PromptTemplateConfig
+var template = _kernel.GetPromptTemplateFromGitPrompt("UserChatPrompt");
 ```
 
 ## Configuration

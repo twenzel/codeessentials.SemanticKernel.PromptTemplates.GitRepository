@@ -16,7 +16,7 @@ public static class PromptGitKernelExtensions
 	/// Returns a <see cref="KernelFunction"/> from the Git prompt plugin by its name.
 	/// </summary>
 	/// <param name="kernel"></param>
-	/// <param name="name"></param>
+	/// <param name="name">The name of the prompt</param>
 	/// <returns></returns>
 	/// <exception cref="ArgumentException"></exception>
 	public static KernelFunction GetFunctionFromGitPrompt(this Kernel kernel, string name)
@@ -41,6 +41,19 @@ public static class PromptGitKernelExtensions
 	{
 		var handler = kernel.GetRequiredService<IGitPromptHandler>();
 
-		return handler.CreateKernelPlugin(kernel);
+		return handler.CreateKernelPlugin();
+	}
+
+	/// <summary>
+	/// Gets the prompt template by name
+	/// </summary>
+	/// <param name="kernel"></param>
+	/// <param name="name">Name of the template.</param>
+	/// <returns></returns>
+	public static PromptTemplateConfig GetPromptTemplateFromGitPrompt(this Kernel kernel, string name)
+	{
+		var handler = kernel.GetRequiredService<IGitPromptHandler>();
+
+		return handler.GetTemplate(name);
 	}
 }

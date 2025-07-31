@@ -37,7 +37,7 @@ public class GitPromptRepositoryConfiguration
 	/// <summary>
 	/// Gets or sets a value indicating whether the temporary directory should be deleted after use.
 	/// </summary>
-	public bool DeleteTemporaryDirectory { get; set; } = true;
+	public bool DeleteTemporaryDirectory { get; set; } = false;
 
 	/// <summary>
 	/// Gets or sets the authentication configuration for accessing the Git repository.

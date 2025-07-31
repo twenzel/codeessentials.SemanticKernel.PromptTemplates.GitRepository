@@ -36,9 +36,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LibGit2Sharp" Version="0.31.0"/>
+    <PackageReference Include="LibGit2Sharp" Version="0.31.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.7" />    
-    <PackageReference Include="Microsoft.SemanticKernel.Yaml" Version="1.60.0" />
+    <PackageReference Include="Microsoft.SemanticKernel.Yaml" Version="1.61.0" />
   </ItemGroup>
 
 </Project>

@@ -48,12 +48,22 @@ public static class PromptGitKernelExtensions
 	/// Gets the prompt template by name
 	/// </summary>
 	/// <param name="kernel"></param>
-	/// <param name="name">Name of the template.</param>
-	/// <returns></returns>
+	/// <param name="name">Name of the template.</param>	
 	public static PromptTemplateConfig GetPromptTemplateFromGitPrompt(this Kernel kernel, string name)
 	{
 		var handler = kernel.GetRequiredService<IGitPromptHandler>();
 
 		return handler.GetTemplate(name);
+	}
+
+	/// <summary>
+	/// Gets the configured prompt template factory
+	/// </summary>
+	/// <param name="kernel"></param>		
+	public static IPromptTemplateFactory? GetGitPromptTemplateFactory(this Kernel kernel)
+	{
+		var configuration = kernel.GetRequiredService<GitPromptRepositoryConfiguration>();
+
+		return configuration.PromptTemplateFactory;
 	}
 }

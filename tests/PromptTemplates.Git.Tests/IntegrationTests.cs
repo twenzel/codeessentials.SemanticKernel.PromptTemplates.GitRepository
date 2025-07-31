@@ -46,4 +46,10 @@ public class IntegrationTests
 		var template = _kernel.GetPromptTemplateFromGitPrompt("UserChatPrompt");
 		template.ShouldNotBeNull();
 	}
+
+	[Test]
+	public void GetGitPromptTemplateFactory()
+	{
+		_kernel.GetGitPromptTemplateFactory().ShouldNotBeNull().ShouldBeOfType<AggregatorPromptTemplateFactory>();
+	}
 }

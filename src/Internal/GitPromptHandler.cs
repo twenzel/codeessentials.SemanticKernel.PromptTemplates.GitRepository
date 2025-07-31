@@ -58,7 +58,7 @@ internal class GitPromptHandler : IGitPromptHandler
 		return template.Template;
 	}
 
-	private string UpdatePrompts(bool forceUpdate)
+	private string? UpdatePrompts(bool forceUpdate)
 	{
 		var tempDir = _repositoryConfiguration.GetLocalRepositoryPath();
 

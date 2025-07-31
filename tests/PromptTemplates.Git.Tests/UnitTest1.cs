@@ -17,11 +17,11 @@ public class Tests
 		services.AddKernel()
 		.AddGitPromptTemplates(config =>
 		{
-			//config.RepositoryUrl = "https://github.com/twenzel/codeessentials.SemanticKernel.PromptTemplates.GitRepository";
+			config.RepositoryUrl = "https://github.com/twenzel/codeessentials.SemanticKernel.PromptTemplates.GitRepository";
 			config.Branch = "main";
-			config.Path = "tests/Prompts";
+			config.Path = "tests/PromptTemplates.Git.Tests/Prompts";
 			config.DeleteTemporaryDirectory = false;
-			//config.LocalRepositoryPath = Path.GetFullPath("./../../../../../");
+			config.LocalRepositoryPath = Path.GetFullPath(Path.Combine(TestContext.CurrentContext.TestDirectory, "../../../../../"));
 
 			// Set the prompt template factory to use default and Handlebars templates
 			config.PromptTemplateFactory = new AggregatorPromptTemplateFactory(

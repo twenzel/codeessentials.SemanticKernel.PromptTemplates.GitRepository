@@ -16,7 +16,7 @@ public interface IGitRepository
 	/// Gets the current commit hash of the repository.
 	/// </summary>
 	/// <returns></returns>
-	string GetCurrentCommit();
+	string? GetCurrentCommit();
 
 	/// <summary>
 	/// Updates the local repository by pulling the latest changes from the remote repository.

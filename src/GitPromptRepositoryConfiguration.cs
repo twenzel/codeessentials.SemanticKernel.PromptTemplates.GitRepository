@@ -25,9 +25,14 @@ public class GitPromptRepositoryConfiguration
 	public string? Path { get; set; }
 
 	/// <summary>
-	/// Gets or sets the temporary directory where the repository will be cloned.
+	/// Gets or sets the temporary directory where the repository will be cloned into a unique sub folder. If null, OS temp path will be used.
 	/// </summary>
 	public string? TemporaryDirectory { get; set; }
+
+	/// <summary>
+	/// Gets or sets the direct path where the repository will be cloned. If null, the <see cref="TemporaryDirectory"/> will be used.
+	/// </summary>
+	public string? LocalRepositoryPath { get; set; }
 
 	/// <summary>
 	/// Gets or sets the factory for creating prompt templates.
@@ -56,6 +61,9 @@ public class GitPromptRepositoryConfiguration
 	/// <exception cref="InvalidOperationException"></exception>
 	public string GetLocalRepositoryPath()
 	{
+		if (!string.IsNullOrEmpty(LocalRepositoryPath))
+			return LocalRepositoryPath;
+
 		if (string.IsNullOrEmpty(RepositoryUrl))
 			throw new InvalidOperationException("Repository URL must be provided.");
 

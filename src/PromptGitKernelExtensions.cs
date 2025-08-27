@@ -21,9 +21,7 @@ public static class PromptGitKernelExtensions
 	/// <exception cref="ArgumentException"></exception>
 	public static KernelFunction GetFunctionFromGitPrompt(this Kernel kernel, string name)
 	{
-		var plugin = kernel.Plugins.FirstOrDefault(p => p.Name == GIT_PROMPT_PLUGIN_NAME);
-
-		plugin ??= kernel.CreatePluginFromPromptGitYaml();
+		var plugin = GetPlugin(kernel);
 
 		var function = plugin.FirstOrDefault(f => f.Name == name);
 		if (function != null)
@@ -65,5 +63,18 @@ public static class PromptGitKernelExtensions
 		var configuration = kernel.GetRequiredService<GitPromptRepositoryConfiguration>();
 
 		return configuration.PromptTemplateFactory;
+	}
+
+	private static KernelPlugin GetPlugin(Kernel kernel)
+	{
+		var plugin = kernel.Plugins.FirstOrDefault(p => p.Name == GIT_PROMPT_PLUGIN_NAME);
+
+		if (plugin == null)
+		{
+			plugin = kernel.CreatePluginFromPromptGitYaml();
+			kernel.Plugins.Add(plugin);
+		}
+
+		return plugin;
 	}
 }
